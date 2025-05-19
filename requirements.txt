@@ -1,0 +1,23 @@
+gradio>=4.25.0
+transformers>=4.38.0 
+torch>=2.2.2
+# Using a slightly newer torch version, ensure it's compatible with bitsandbytes
+# For CPU-only: torch --index-url https://download.pytorch.org/whl/cpu
+
+# For Quantization
+bitsandbytes>=0.42.0 
+#pip install -U bitsandbytes
+
+# bitsandbytes is primarily for NVIDIA GPUs. CPU support is experimental or might require specific builds/compilations.
+# If you encounter issues with bitsandbytes on CPU, you might need to remove it and load the model without quantization,
+# or find a CPU-specific quantization library.
+
+accelerate>=0.25.0 
+# Accelerate is helpful for device_map="auto" and managing model loading
+
+# Libraries you found helpful for environment stability:
+pydantic==2.10.6
+google-genai==0.5.0 
+python-dotenv>=0.15.0
+
+sentencepiece # Often needed by tokenizers
